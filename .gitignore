@@ -9,6 +9,10 @@
 *.psd
 *.zip
 *.rtf
+*.xcf
+
+#Self reference files
+*.notinrepo
 
 #Alias folder
 _back
