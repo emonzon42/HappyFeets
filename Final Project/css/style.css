@@ -1,0 +1,113 @@
+/* Utility Styles 
+These styles will let padding/border be automatically added to our width calculations.
+The row styles create a "clear fix" for us so we can float things inside of containers with a class of "row."
+We also remove the default margin from the body, give our main container a width of 100% with a max of 1000px, 
+and then we center it with margin: 0 auto. 
+The last thing we do is make all images responsive by setting their max-width to 100%. */
+
+* {
+    box-sizing: border-box;
+}
+.row {
+    width: 100%;
+}
+.row:after,
+.row:before {
+    content: "";
+    display: table;
+    clear: both;
+}
+body {
+    background-color: rgb(243, 243, 243);
+    font-size: 16px;
+    margin: 0;
+}
+img {
+    max-width: 100%;
+}
+
+a{
+    color: #6ec2ff;
+    text-decoration: none;
+}
+
+.box{ /* primary container for most things on the website*/
+    padding: 2em;
+    background: white;
+    margin: 0 2em;
+}
+
+/* End Utility Styles */
+
+/*? hexcodes for colors used in style tile
+
+#f2ec0d
+#2fa5fb
+#6ec2ff
+#24dbf4
+#f4cb24
+#faff78
+
+*/
+
+
+/* Header Styles */
+header {
+    background: black;
+}
+nav{
+    background: black;
+    display: flex;
+    border: 1px solid black;
+}
+nav a {
+    padding: 1em 0;
+    text-align: center;
+    width: 15%; /* 100/7 is ~14.28 */
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+nav a:hover {
+    background: #6ec2ff;
+    text-decoration: underline;
+    color: white;
+    font-weight: bold;
+}
+
+
+/* End Header Styles */
+
+
+/* Footer */
+footer{
+    background-color: black;
+    color: white;
+    padding: 3em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+footer ul{
+    list-style-type: none;
+    padding: 0;
+    padding-bottom: 1em;
+}
+
+footer li{
+    padding-bottom: .5em;
+}
+
+
+footer span{
+    font-size: smaller;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left: 1em;
+}
+
+/* End Footer Styles */
+
+
+.content{
+
+}
