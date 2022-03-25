@@ -38,6 +38,11 @@ a{
     text-align: center;
 }
 
+.ibox{ /* invisible box : used to space out page*/
+    padding: 2em;
+    margin: 0 5em;
+}
+
 /* End Utility Styles */
 
 /*
@@ -83,6 +88,13 @@ nav a:hover {
 
 /* Body Styles*/
 
+img#homecov{
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    
+}
+
 .box img{
     min-width: 50%;
 }
@@ -95,7 +107,7 @@ nav a:hover {
 }
 
 .box li{
-    margin: 5em 3em;
+    margin: 2em 3em;
     
 }
 
@@ -123,7 +135,7 @@ nav a:hover {
     text-align: left;
 }
 
-.box h1#cen{
+.box h1.cen{
     text-align: center;
     font-size: 300%;
 }
