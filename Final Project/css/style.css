@@ -34,12 +34,14 @@ a{
 .box{ /* primary container for most things on the website*/
     padding: 2em;
     background: white;
-    margin: 0 2em;
+    margin: 0 5em;
+    text-align: center;
 }
 
 /* End Utility Styles */
 
-/*? hexcodes for colors used in style tile
+/*
+! hexcodes for colors used in style tile
 
 #f2ec0d
 #2fa5fb
@@ -79,6 +81,56 @@ nav a:hover {
 /* End Header Styles */
 
 
+/* Body Styles*/
+
+.box img{
+    min-width: 50%;
+}
+
+.box ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+}
+
+.box li{
+    margin: 5em 3em;
+    
+}
+
+.box li#item{
+    border:1px solid gainsboro;
+    color: black;
+}
+.box li#item a{
+    color: black;
+    text-align: center;
+}
+
+.box li#item a p{
+    margin-top: 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.box li#item a p:hover{
+    text-decoration: underline;
+}
+
+
+.box h1,p{
+    text-align: left;
+}
+
+.box h1#cen{
+    text-align: center;
+    font-size: 300%;
+}
+
+
+
+
 /* Footer */
 footer{
     background-color: black;
@@ -106,8 +158,3 @@ footer span{
 }
 
 /* End Footer Styles */
-
-
-.content{
-
-}
