@@ -65,9 +65,10 @@ a{
 
 
 /* Header Styles */
+
 header {
     display: flex;
-    padding-top: 1em;
+    padding-top: 1.5em;
     padding-left: 5%;
     padding-right: 5%;
     background: black;
@@ -115,12 +116,28 @@ nav a:hover {
 
 
 /* Body Styles*/
+#homehead{
+    position: relative;
+    display: flex;
+}
+
+#homehead h1{
+    width: fit-content;
+    height: auto;
+    background: #faff78;
+    float:left;
+    position:absolute;
+    padding: .25%;
+    margin-left: 1%;
+    border-top: .5px solid black;
+    border-left: .5px solid black;
+    border-right:  2px solid black;
+    border-bottom:2px solid black;
+}
 
 img#homecov{
-    display: block;
+    display: flex;
     margin: 0 auto;
-    width: 50%;
-    
 }
 
 .box img{
@@ -167,8 +184,6 @@ img#homecov{
     text-align: center;
     font-size: 300%;
 }
-
-
 
 
 /* Footer */
