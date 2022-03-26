@@ -160,22 +160,22 @@ img#homecov{
     
 }
 
-.box li#item{
+.box li.item{
     border:1px solid gainsboro;
     color: black;
 }
-.box li#item a{
+.box li.item a{
     color: black;
     text-align: center;
 }
 
-.box li#item a p{
+.box li.item a p{
     margin-top: 0;
     font-weight: bold;
     text-align: center;
 }
 
-.box li#item a p:hover{
+.box li.item a p:hover{
     text-decoration: underline;
 }
 
