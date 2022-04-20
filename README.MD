@@ -1,7 +1,7 @@
 # E-Commerce Website
 All the code that goes into my online shopping website
 
-[Link To Website](https://www.albany.edu/~em421433/CINF%20362/Midterm/html/ "Happy Feets")
+[Live Link To Website](https://happy-feets.000webhostapp.com "Happy Feets")
 
 ###
 This was the final project for my college [Intermediate Interactive Design](https://github.com/emonzon42/CINF-362 "My Classwork") class
