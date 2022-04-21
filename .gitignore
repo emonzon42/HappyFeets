@@ -5,6 +5,9 @@
 ~$*
 .vscode
 
+#unincluded for security
+secure
+
 #Unneccessary
 *.psd
 *.zip
