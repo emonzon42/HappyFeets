@@ -23,14 +23,21 @@
         <div class="ibox"></div>
     
         <div class="box">
-            <img src="https://via.placeholder.com/500" alt="placeholder">
-            
-            <aside>
+
+            <div class="left pinfo">
                 <h1>Product Name</h1>
-                other stuff
-            </aside>
-            
-    
+                <p>$XX.XX</p>
+
+                <p>Size: XX.X</p>
+
+                <button id="buy" class= "bigbutton">Buy Now</button>
+            </div>
+            <div class="right">
+            <img src="https://via.placeholder.com/500" alt="placeholder">
+            </div>
+            <p id="desc">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ratione quas, quidem adipisci voluptatibus quia facere blanditiis hic at mollitia necessitatibus repellendus itaque fugiat, natus consequuntur deleniti a qui magni.
+            </p>
         </div>
         <div class="ibox"></div>
     

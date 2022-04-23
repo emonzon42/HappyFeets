@@ -71,10 +71,12 @@ a{
     margin: 0 5em;
 }
 .left{ /* content on left side of page */
-    width: 50%;
+    display: inline-flex;
+    width: 49%;
 }
 .right{ /* content on right side of page */
-    width: 50%;
+    display: inline-flex;
+    width: 49%;
 }
 
 /* End Utility Styles */
@@ -82,12 +84,12 @@ a{
 /*
 ! hexcodes for colors used in style tile
 
-#f2ec0d
-#2fa5fb
-#6ec2ff
-#24dbf4
-#f4cb24
-#faff78
+#f2ec0d /*!yellow
+#2fa5fb /*!blue
+#6ec2ff /*!soft sky blue
+#24dbf4 /*!cyan
+#f4cb24 /*!gold yellow
+#faff78 /*!lite yellow
 
 */
 
@@ -167,9 +169,29 @@ nav a:hover {
     border-bottom:2px solid black;
 }
 
+p#desc{
+    border: 1px outset rgb(250, 250, 250);
+    background-color: rgb(243, 243, 243);
+    padding: 3em;
+    margin: 2em;
+}
+
 img#homecov{
     display: flex;
     margin: 0 auto;
+}
+
+button#buy{
+    margin-top: 2em;
+}
+
+button.bigbutton{
+    padding: 2.5em 2em;
+    background-color: #f4cb24;
+    border-radius: 2em;
+    font-weight: bold;
+    font-size: large;
+
 }
 
 .box img{
@@ -215,6 +237,20 @@ img#homecov{
 .box h1.cen{
     text-align: center;
     font-size: 300%;
+}
+
+.box .left{
+    flex-direction: column;
+    vertical-align: top; 
+    padding: 1em 4em;
+    line-height: 4em;
+}
+
+.box .right{
+    padding: 2em 0;
+}
+.pinfo p{
+    font-size: large;
 }
 
 
