@@ -1,5 +1,5 @@
 <?php 
-    include './secure/manguconsalami.php';
+    include '../secure/manguconsalami.php';
 
     // Create new connection through mysqli using the four pieces of credentials
     $conn = new mysqli($dreamland, $kobe, $shaq, $db);
