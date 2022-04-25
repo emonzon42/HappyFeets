@@ -1,4 +1,14 @@
 <!-- © 2022, Elijah C. Monzon Alvarenga. -->
+<?php
+    require_once './login/connection.php';
+
+    $query = "SELECT * FROM sneakers";
+    $result = $conn->query($query);
+    if (!$result) {
+        $message =  "Error: " . $sql . "<br>" . $conn->error;
+    }
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -36,6 +46,23 @@
                         $XX.XX
                     </a>
                 </li>
+
+                <?php
+                    
+                    echo '<li class="item">';
+                        
+                    while($row = mysqli_fetch_array($result)){
+                       echo '<a href="#">';//!create get link for item to product page
+                            echo '<img src="'.$row['image1'].'" alt="'.$row['name'].'">';
+                            echo '<p>'.$row['name'].'</p>';
+                            echo $row['price'];
+                       echo '</a>';
+                    }
+
+                    echo '</li>';
+
+                    $conn->close();
+                ?>
     
                 <li class="item">
                     <a href="#">
