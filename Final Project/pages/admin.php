@@ -27,21 +27,9 @@ if ($authenticate == false) {
         ) {
             $message = json_encode($_POST);
         } else {
-
-
-            $message .=  "smdddddd";
-            include './secure/manguconsalami.php';
+            require_once './login/connection.php';
             include '../tools/cleanup.php'; //clean up tools for data
 
-            // Create new connection through mysqli using the four pieces of credentials
-            $conn = new mysqli($dreamland, $kobe, $shaq, $db);
-
-            // Check connection and quit if it doesn't work
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-
-            // Use switch to see which button was submitted (same as if/else if/else)
             //todo: data validation & prepared statements !(security measures)
             $name = $_POST['name'];
             $alt = $_POST['alt'];
