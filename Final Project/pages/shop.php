@@ -40,11 +40,13 @@
         <div class="box">
             <ul id="products">
                 <?php
+                    include __DIR__.'/tools/hashslingingslasher.php'; //functions to hash/dehash data
+
                     while($row = mysqli_fetch_array($result)){
                         if(!$row['Qty']==0){//if we have run out of inventory it will not display
                             //echo json_encode($row);
                             echo '<li class="item">';
-                                echo '<a href="./product.php?name='.$row['Name'].'&color='.$row['Color1'].'&hash='.($row['ID'] * 42 + (15^4)).'">';//!create get link for item to product page
+                                echo '<a href="./product.php?name='.$row['Name'].'&color='.$row['Color1'].'&hash='.hasher($row['ID']).'">';
                                     echo '<img src="../img/products/'.$row['image1'].'" alt="'.$row['Name'].'" width="200px" height="200px">';
                                     echo '<p>'.$row['Name'].'</p>';
                                     echo $row['Price'];

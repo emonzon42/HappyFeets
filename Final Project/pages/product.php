@@ -19,6 +19,8 @@
     <body>
         <div id="header"></div>
         <?php
+        include __DIR__.'/tools/hashslingingslasher.php'; //functions to hash/dehash data
+        
         $errormsg = "<p class='error'>Page Not Found. :(</p>";
         if (empty($_GET['name']) || empty($_GET['color']) || empty($_GET['hash'])) { //the hash = id * 42 + (15^4)
             echo $errormsg;
@@ -26,7 +28,7 @@
             if (is_numeric($_GET['hash'])) {
                 require_once './login/connection.php';
 
-                $id = ($_GET['hash'] - (15 ^ 4)) / 42;
+                $id = dehash($_GET['hash']);
 
                 $query = "SELECT * FROM sneakers WHERE id=" . $id;
                 $result = $conn->query($query);
