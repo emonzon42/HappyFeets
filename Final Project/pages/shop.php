@@ -48,18 +48,18 @@
                 </li>
 
                 <?php
-                    
-                    echo '<li class="item">';
-                        
                     while($row = mysqli_fetch_array($result)){
-                       echo '<a href="#">';//!create get link for item to product page
-                            echo '<img src="'.$row['image1'].'" alt="'.$row['name'].'">';
-                            echo '<p>'.$row['name'].'</p>';
-                            echo $row['price'];
-                       echo '</a>';
-                    }
-
-                    echo '</li>';
+                        if(!$row['Qty']==0){//if we have run out of inventory it will not display
+                            //echo json_encode($row);
+                            echo '<li class="item">';
+                                echo '<a href="#">';//!create get link for item to product page
+                                    echo '<img src="../img/products/'.$row['image1'].'" alt="'.$row['Name'].'" width="200px" height="200px">';
+                                    echo '<p>'.$row['Name'].'</p>';
+                                    echo $row['Price'];
+                                echo '</a>';
+                            echo '</li>';
+                        }
+                    }   
 
                     $conn->close();
                 ?>
