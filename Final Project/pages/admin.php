@@ -1,5 +1,5 @@
 <?php
-include './secure/sunshine.php';
+include __DIR__.'/./secure/sunshine.php';
 
 $authenticate = false;
 if (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW'])) {
@@ -16,19 +16,18 @@ if ($authenticate == false) {
     echo "YOU DO NOT HAVE ACCESS TO THIS PAGE >:)";
 } else {
 
-    $message = "yurrr";
+    $message = "Enter all the details below:";
 
     if (isset($_POST['adminsub'])) { // Has our form been submitted?
 
         if (
             empty($_POST['name']) || empty($_POST['alt']) || empty($_POST['size']) || empty($_POST['c1'])
-            || empty($_POST['c2']) || empty($_POST['c3']) || empty($_POST['price']) || empty($_POST['itemdesc'])
-            || empty($_POST['img1'])
-        ) {
-            $message = json_encode($_POST);
+            || empty($_POST['c2']) || empty($_POST['c3']) || empty($_POST['price']) || empty($_POST['itemdesc'])) {
+            $message =json_encode($_POST); //"Please fill out everything.";
+        
         } else {
             require_once './login/connection.php';
-            include '../tools/cleanup.php'; //clean up tools for data
+            include __DIR__.'/tools/cleanup.php'; //clean up tools for data
 
             //todo: data validation & prepared statements !(security measures)
             $name = $_POST['name'];
@@ -40,16 +39,17 @@ if ($authenticate == false) {
             $price = $_POST['price'];
             $itemdesc = $_POST['itemdesc'];
             $qty = $_POST['qty'];
-            $img1 = $_POST['img1'];
+            $img1 = $_FILES['img1']['name'];
 
-
+            $folder = __DIR__."/img/products/".$img1;
+            
+            //!IMAGE DOESN'T SUBMIT PROPERLY
             $sql = "INSERT INTO sneakers 
-                (Name, AltName, Size, Color1, Color2, Color3,Price,ItemDesc,Qty,imagelink1) 
+                (Name, AltName, Size, Color1, Color2, Color3,Price,ItemDesc,Qty,image1) 
                 VALUES 
                 ('" . $name . "','" . $alt . "'," . $size . ",'" . $c1 . "','" . $c2 . "','" . $c3 . "'," . $price . ",'" . $itemdesc . "',
-                " . $qty . ", LOAD_FILE('" . $img1 . "'));
+                " . $qty . ",'" . $img1 . "');
             "; //LOAD_FILE(submittedimg `)
-            $message = $name . " has been successfully inserted";
 
             // Set our query results on the database to a variable
             $result = $conn->query($sql);
@@ -57,6 +57,10 @@ if ($authenticate == false) {
             // If the create table query we ran on the database is bad, let the user know.
             if (!$result) {
                 $message =  "Error: " . $sql . "<br>" . $conn->error;
+            } else if (move_uploaded_file($_FILES['img1']['tmp_name'],$folder)){
+                $message = $name . " has been successfully uploaded";
+            } else{
+                $message = $name . " has been inserted, but the picture wasn't uploaded"; //should never happen if i did everything right
             }
 
             // Close connection - ALWAYS DO THIS
@@ -94,7 +98,7 @@ if ($authenticate == false) {
             <p class="center"><?php
                 echo $message;
             ?></p>
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 <label for="name">Name:</label>
                 <input type="text" name="name" id="name" required><br>
                 <label for="alt">alt Name:</label>
