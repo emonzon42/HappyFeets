@@ -1,5 +1,5 @@
 <?php
-include './secure/sunshine.php';
+include __DIR__.'/./secure/sunshine.php';
 
 $authenticate = false;
 if (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW'])) {
@@ -27,7 +27,7 @@ if ($authenticate == false) {
         
         } else {
             require_once './login/connection.php';
-            include '../tools/cleanup.php'; //clean up tools for data
+            include __DIR__.'/tools/cleanup.php'; //clean up tools for data
 
             //todo: data validation & prepared statements !(security measures)
             $name = $_POST['name'];
@@ -40,27 +40,27 @@ if ($authenticate == false) {
             $itemdesc = $_POST['itemdesc'];
             $qty = $_POST['qty'];
             $img1 = $_FILES['img1']['name'];
-            $imgtemp = $_FILES['img1']['tmp_name'];
 
-            $folder = "../img/products/".$img1;
+            $folder = __DIR__."/img/products/".$img1;
             
             //!IMAGE DOESN'T SUBMIT PROPERLY
             $sql = "INSERT INTO sneakers 
                 (Name, AltName, Size, Color1, Color2, Color3,Price,ItemDesc,Qty,image1) 
                 VALUES 
                 ('" . $name . "','" . $alt . "'," . $size . ",'" . $c1 . "','" . $c2 . "','" . $c3 . "'," . $price . ",'" . $itemdesc . "',
-                " . $qty . ",'" . $img1 . "'));
+                " . $qty . ",'" . $img1 . "');
             "; //LOAD_FILE(submittedimg `)
 
             // Set our query results on the database to a variable
             $result = $conn->query($sql);
 
-            if (move_uploaded_file($imgtemp,$folder)){
-                $message = $name . " has been successfully uploaded";
-            }
             // If the create table query we ran on the database is bad, let the user know.
             if (!$result) {
                 $message =  "Error: " . $sql . "<br>" . $conn->error;
+            } else if (move_uploaded_file($_FILES['img1']['tmp_name'],$folder)){
+                $message = $name . " has been successfully uploaded";
+            } else{
+                $message = $name . " has been inserted, but the picture wasn't uploaded"; //should never happen if i did everything right
             }
 
             // Close connection - ALWAYS DO THIS
