@@ -5,10 +5,10 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Happy Feets | <?php $name ?></title>
+        <title>Happy Feets | <?php echo $_GET['name']; ?></title>
         <link rel="shortcut icon" type="image/jpg" href="../img/Smileyy.png" />
         <link rel="icon" type="image/jpg" href="../img/Smileyy.png" />
-        <meta name="description" content="<?php $itemdesc ?>">
+        <meta name="description" content="<?php echo $itemdesc; ?>"> <!--//!figure out how to get item desc to auto fill this-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Elijah Alvarenga">
         <link rel="stylesheet" href="../css/style.css">
@@ -20,7 +20,7 @@
         <div id="header"></div>
         <?php
         include __DIR__.'/tools/hashslingingslasher.php'; //functions to hash/dehash data
-        
+
         $errormsg = "<p class='error'>Page Not Found. :(</p>";
         if (empty($_GET['name']) || empty($_GET['color']) || empty($_GET['hash'])) { //the hash = id * 42 + (15^4)
             echo $errormsg;
@@ -30,13 +30,20 @@
 
                 $id = dehash($_GET['hash']);
 
-                $query = "SELECT * FROM sneakers WHERE id=" . $id;
+                $query = "SELECT * FROM sneakers WHERE id=" . $id." AND name='".$_GET['name']."' AND color1='".$_GET['color']."'";
                 $result = $conn->query($query);
                 if (!$result) {
                     echo  "Error: " . $sql . "<br>" . $conn->error;
                     exit;
                 }
                 $row = mysqli_fetch_row($result);
+
+                if(empty($row)){//user inputted a product into the url that doesn't exist
+                    echo $errormsg. "It seems you have attempted to handwrite the URL or this page no longer exists. 
+                    Please go ";
+                    echo "<a href='/'>back</a>.";
+                    exit;
+                }
 
                 $name = $row[1];
                 $alt = $row[2];
@@ -51,40 +58,40 @@
 
 
                 $conn->close();
+        ?>
+
+                <!-- Page Specific-->
+                <div class="ibox"></div>
+
+                <div class="box">
+
+                    <div class="left pinfo">
+                        <?php
+                        echo '<h1>' . $name . '</h1>';
+                        echo '<h3>' . $alt . '</h3>';
+                        echo '<p>$' . $price . '</p>';
+                        echo '<p>Size: ' . $size . '</p>';
+                        ?>
+
+                        <button id="buy" class="bigbutton">Buy Now</button>
+                    </div>
+                    <div class="right">
+                        <?php
+                        echo '<img src="../img/products/' . $img . '" alt="' . $name . ' ' . $alt . '">;'
+                        ?>
+                    </div>
+                    <p id="desc">
+                        <?php
+                        echo $itemdesc;
+                        ?>
+                    </p>
+                </div>
+                <div class="ibox"></div>
+
+        <?php
             } else {
                 echo $errormsg;
             }
-        ?>
-
-            <!-- Page Specific-->
-            <div class="ibox"></div>
-
-            <div class="box">
-
-                <div class="left pinfo">
-                    <?php
-                    echo '<h1>' . $name . '</h1>';
-                    echo '<h3>' . $alt . '</h3>';
-                    echo '<p>$' . $price . '</p>';
-                    echo '<p>Size: ' . $size . '</p>';
-                    ?>
-
-                    <button id="buy" class="bigbutton">Buy Now</button>
-                </div>
-                <div class="right">
-                    <?php
-                    echo '<img src="../img/products/' . $img . '" alt="' . $name . ' ' . $alt . '">;'
-                    ?>
-                </div>
-                <p id="desc">
-                    <?php
-                    echo $itemdesc;
-                    ?>
-                </p>
-            </div>
-            <div class="ibox"></div>
-
-        <?php
         }
         ?>
         <!-- Footer-->

@@ -49,7 +49,7 @@
                                 echo '<a href="./product.php?name='.$row['Name'].'&color='.$row['Color1'].'&hash='.hasher($row['ID']).'">';
                                     echo '<img src="../img/products/'.$row['image1'].'" alt="'.$row['Name'].'" width="200px" height="200px">';
                                     echo '<p>'.$row['Name'].'</p>';
-                                    echo $row['Price'];
+                                    echo "$".$row['Price'];
                                 echo '</a>';
                             echo '</li>';
                         }
