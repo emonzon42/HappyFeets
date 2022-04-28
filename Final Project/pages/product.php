@@ -65,7 +65,13 @@
 
                 <div class="box">
 
-                    <div class="left pinfo">
+                    <div class="left">
+                        <?php
+                        echo '<img src="../img/products/' . $img . '" alt="' . $name . ' ' . $alt . '">';
+                        ?>
+                    </div>
+
+                    <div class="right pinfo">
                         <?php
                         echo '<h1>' . $name . '</h1>';
                         echo '<h3>' . $alt . '</h3>';
@@ -75,11 +81,7 @@
 
                         <button id="buy" class="bigbutton">Buy Now</button>
                     </div>
-                    <div class="right">
-                        <?php
-                        echo '<img src="../img/products/' . $img . '" alt="' . $name . ' ' . $alt . '">;'
-                        ?>
-                    </div>
+
                     <p id="desc">
                         <?php
                         echo $itemdesc;

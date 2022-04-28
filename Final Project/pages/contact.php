@@ -20,8 +20,6 @@
     
         <!-- Page Specific-->
         <div class="ibox"></div>
-        <div class="box"></div>
-        <div class="box"></div>
         <div class="box">
             <h1 class="cen">Contact Us</h1>
         </div>
@@ -53,7 +51,7 @@
                     if(empty($_POST['fname']) || empty($_POST['lname']) || empty($_POST['email']) || empty($_POST['msg'])){
                         echo "Please provide any missing values.";
                     }else{
-                        include './secure/manguconsalami.php';
+                        //include './secure/manguconsalami.php';
                         include '../tools/cleanup.php'; //clean up tools for data
                         include '../tools/mail.php'; //to send emails
 

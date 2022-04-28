@@ -31,9 +31,6 @@
         <!-- Page Specific-->
         <div class="box">
             <h1>Shop All</h1>
-        </div>
-    
-        <div class="box">
             <p>All available products</p>
         </div>
     
