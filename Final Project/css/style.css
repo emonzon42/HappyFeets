@@ -209,7 +209,6 @@ p.error{
 }
 
 .box img{
-    min-width: 50%;
     margin: 0 auto;
 }
 
@@ -268,6 +267,24 @@ p.error{
 }
 .pinfo p{
     font-size: large;
+}
+
+table.cart{
+    border-collapse: separate;
+    border-spacing: 0 2vw;
+}
+
+table.cart tr th:nth-child(1){
+    width: 93%;
+}
+
+table.cart tr td:nth-child(1){
+    display: flex;
+    float: left;
+}
+
+table.cart .stack{
+    margin-left: 1vw;
 }
 
 
