@@ -81,7 +81,7 @@ include __DIR__.'/tools/hashslingingslasher.php';
                         <tr>
                             <td>
                                 <img src="../img/products/' . $img . '" alt="' . $name . ' ' . $alt . '" max-width="100px" max-height="100px" width="100px" height="100px">
-                                <div class="stack"><h3>'.$name.'</h3>Size: '.$size.'</div>
+                                <div class="stack"><h3>'.$brand.' '.$name.'</h3>Size: '.$size.'</div>
                             </td>       
                             <td>1</td>
                             <td>$'.$price.'</td>

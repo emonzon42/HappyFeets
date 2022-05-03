@@ -199,6 +199,12 @@ ul#products{
     width: fit-content;
 }
 
+h2.brandname{
+    color:#2fa5fb;
+    text-shadow: 0 0 1px black;
+    letter-spacing: 1px;
+}
+
 button.bigbutton{
     padding: 2.5em 2em;
     background-color: #f4cb24;
@@ -271,7 +277,7 @@ p.error{
     padding: 2em 0;
 }
 
-.box .right{
+.box .pinfo{
     flex-direction: column;
     vertical-align: top; 
     padding: 1em 4em;
@@ -346,11 +352,11 @@ footer span{
 }
 
 @media(max-width:800px){
-    p{
+   /* p{
         font-size: 4vw;
-    }
+    }*/
     h1{
-        font-size: 4em;
+        font-size: 6vw;
     }
     img#logo{
         max-width: 25%;
@@ -380,7 +386,7 @@ footer span{
         flex-direction: column;
     }
 
-    .box .right{
+    .box .pinfo{
         line-height: 2em;
     }
     /*

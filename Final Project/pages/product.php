@@ -75,8 +75,10 @@
 
                     <div class="right pinfo">
                         <?php
+                        echo '<h2 class ="brandname">' . $brand . '</h2>';
                         echo '<h1>' . $name . '</h1>';
                         echo '<h3>' . $alt . '</h3>';
+                        echo '' . $c1 . ' / ' . $c2 . ' / ' . $c3 . '';
                         echo '<p>$' . $price . '</p>';
                         echo '<p>Size: ' . $size . '</p>';
                         ?>
