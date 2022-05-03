@@ -22,7 +22,7 @@
         <!-- Page Specific-->
         <div id="homehead">
     
-            <img src="../img/homecover.jpg" max-width="2160px" max-height="1080px" alt="dummy image" id="homecov">
+            <img src="../img/homecover2.jpg" max-width="2160px" max-height="1080px" alt="dummy image" id="homecov">
             <h1 class="cen">Happiness Is Where The Heart Is</h1>
         </div>
         <div class="ibox"></div>
