@@ -79,7 +79,8 @@
                         echo '<p>Size: ' . $size . '</p>';
                         ?>
 
-                        <button id="buy" class="bigbutton">Buy Now</button>
+                        <button type="submit" name="submit" value="buy" id="buy" class="bigbutton">Add To Cart</button>
+                        <div id="additemoutput"></div>
                     </div>
 
                     <p id="desc">
@@ -98,7 +99,21 @@
         ?>
         <!-- Footer-->
         <div id="footer"></div>
-
+        <?php
+        echo 
+        "<script>
+        $.getScript('../js/cartadd.js', function()
+            {
+                document.getElementById('buy').onclick = function() {
+                    if (addtocart(".hasher($id).")){
+                        $('#additemoutput').html('It has been added to the cart.');
+                    } else{
+                        $('#additemoutput').html('An error has occurred. Please try again later.');
+                    }
+                }
+            });
+        </script>";
+        ?>
         <script src="../js/loadheadfoot.js"></script>
     </body>
 
