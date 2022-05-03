@@ -30,7 +30,8 @@
 
                 $id = dehash($_GET['hash']);
 
-                $query = "SELECT * FROM sneakers WHERE id=" . $id." AND name='".$_GET['name']."' AND color1='".$_GET['color']."'";
+                $query = "SELECT ID,Name,AltName,Brand,cast(Size as decimal(10,1)),Color1,Color2,Color3,cast(Price as decimal(10,2)),ItemDesc,Qty,image1 
+                FROM sneakers WHERE id=" . $id." AND name='".$_GET['name']."' AND color1='".$_GET['color']."'";
                 $result = $conn->query($query);
                 if (!$result) {
                     echo  "Error: " . $sql . "<br>" . $conn->error;
@@ -48,11 +49,11 @@
                 $name = $row['Name'];
                 $alt = $row['AltName'];
                 $brand = $row['Brand'];
-                $size = $row['Size'];
+                $size = $row['cast(Size as decimal(10,1))'];
                 $c1 = $row['Color1'];
                 $c2 = $row['Color2'];
                 $c3 = $row['Color3'];
-                $price = $row['Price'];
+                $price = $row['cast(Price as decimal(10,2))'];
                 $itemdesc = $row['ItemDesc'];
                 $qty = $row['Qty'];
                 $img = $row['image1'];

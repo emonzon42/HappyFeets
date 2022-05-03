@@ -7,29 +7,31 @@ include __DIR__.'/tools/hashslingingslasher.php';
 
     $id = dehash($_COOKIE['cartitem']);
 //    echo '<script>alert("'.$_COOKIE['cartitem'].'");</script>';
-    $query = "SELECT * FROM sneakers WHERE id=" . $id . "";
+    $query = "SELECT ID,Name,AltName,Brand,cast(Size as decimal(10,1)),Color1,Color2,Color3,cast(Price as decimal(10,2)),ItemDesc,Qty,image1
+    FROM sneakers WHERE id=" . $id . "";
     $result = $conn->query($query);
     if (!$result) {
         $message = "Error: " . $sql . "<br>" . $conn->error;
         $error = true;
         exit;
     }
-    $row = mysqli_fetch_row($result);
+    $row = mysqli_fetch_array($result);
 
     if (empty($row)) { //cookie doesn't exist
         $message="Your cart is currently empty.";
         $error = true;
     } else{
-        $name = $row[1];
-        $alt = $row[2];
-        $size = $row[3];
-        $c1 = $row[4];
-        $c2 = $row[5];
-        $c3 = $row[6];
-        $price = $row[7];
-        $itemdesc = $row[8];
-        $qty = $row[9];
-        $img = $row[10];
+        $name = $row['Name'];
+        $alt = $row['AltName'];
+        $brand = $row['Brand'];
+        $size = $row['cast(Size as decimal(10,1))'];
+        $c1 = $row['Color1'];
+        $c2 = $row['Color2'];
+        $c3 = $row['Color3'];
+        $price = $row['cast(Price as decimal(10,2))'];
+        $itemdesc = $row['ItemDesc'];
+        $qty = $row['Qty'];
+        $img = $row['image1'];
 
     }
 
