@@ -64,6 +64,7 @@ a{
 
 .center{
     text-align: center;
+    
 }
 
 .ibox{ /* invisible box : used to space out page*/
@@ -71,10 +72,12 @@ a{
     margin: 0 5em;
 }
 .left{ /* content on left side of page */
-    width: 50%;
+    display: inline-flex;
+    width: 49%;
 }
 .right{ /* content on right side of page */
-    width: 50%;
+    display: inline-flex;
+    width: 49%;
 }
 
 /* End Utility Styles */
@@ -82,12 +85,12 @@ a{
 /*
 ! hexcodes for colors used in style tile
 
-#f2ec0d
-#2fa5fb
-#6ec2ff
-#24dbf4
-#f4cb24
-#faff78
+#f2ec0d /*!yellow
+#2fa5fb /*!blue
+#6ec2ff /*!soft sky blue
+#24dbf4 /*!cyan
+#f4cb24 /*!gold yellow
+#faff78 /*!lite yellow
 
 */
 
@@ -105,7 +108,6 @@ header .right{
     display: flex;
     justify-content: flex-end;
     padding-top: 5%;
-    padding-left: 38%;
 }
 header .right a{
     color: white;
@@ -131,6 +133,7 @@ nav a {
     color: white;
     text-decoration: none;
     font-size: 1.5em;
+    white-space: nowrap;
 }
 nav a:hover {
     background: #6ec2ff;
@@ -167,13 +170,59 @@ nav a:hover {
     border-bottom:2px solid black;
 }
 
+p#desc{
+    border: 1px outset rgb(250, 250, 250);
+    background-color: rgb(243, 243, 243);
+    padding: 3em;
+    margin: 2em;
+    border-radius: 1em;
+}
+
 img#homecov{
     display: flex;
     margin: 0 auto;
 }
 
+button#buy{
+    margin-top: 2em;
+}
+
+button#checkout{
+    padding: 2em 3em;
+    margin-left: 85%;
+    font-size: small;
+}
+
+ul#products{
+    margin: 0 auto;
+    block-size: fit-content;
+    width: fit-content;
+}
+
+button.bigbutton{
+    padding: 2.5em 2em;
+    background-color: #f4cb24;
+    border-radius: 2em;
+    font-weight: bold;
+    font-size: large;
+
+}
+
+button.medbutton{
+    padding: 2vw 1vw;
+    background-color: #f4cb24;
+    border-radius: 2em;
+    font-weight: bold;
+}
+
+p.error{
+    font-size: xx-large;
+    margin:15%;
+    padding-bottom: 25%;
+}
+
 .box img{
-    min-width: 50%;
+    margin: 0 auto;
 }
 
 .box ul{
@@ -181,6 +230,7 @@ img#homecov{
     flex-wrap: wrap;
     list-style-type: none;
     padding: 0;
+    text-align: center;
 }
 
 .box li{
@@ -217,6 +267,38 @@ img#homecov{
     font-size: 300%;
 }
 
+.box .left{
+    padding: 2em 0;
+}
+
+.box .right{
+    flex-direction: column;
+    vertical-align: top; 
+    padding: 1em 4em;
+    line-height: 4em;
+}
+.pinfo p{
+    font-size: large;
+}
+
+table.cart{
+    border-collapse: separate;
+    border-spacing: 0 2vw;
+}
+
+table.cart tr th:nth-child(1){
+    width: 93%;
+}
+
+table.cart tr td:nth-child(1){
+    display: flex;
+    float: left;
+}
+
+table.cart .stack{
+    margin-left: 1vw;
+}
+
 
 /* Footer */
 footer{
@@ -246,3 +328,111 @@ footer span{
 }
 
 /* End Footer Styles */
+
+/* Media Queries*/
+
+@media(max-width:1440px){
+}
+
+
+@media(max-width:1080px){
+    img#logo{
+        max-width: 20%;
+    }
+
+    .box li{
+        margin: 2em auto;
+    }
+}
+
+@media(max-width:800px){
+    p{
+        font-size: 4vw;
+    }
+    h1{
+        font-size: 4em;
+    }
+    img#logo{
+        max-width: 25%;
+    }
+    nav a{
+        margin: 0 .5em;
+        width: fit-content;
+    }
+
+    nav a:hover{
+        font-weight: normal;
+    }
+
+    button#checkout{
+        font-size: medium;
+        margin-top: 1.5em;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .left, .right{
+        width: 100%;
+    }
+
+    .box{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .box .right{
+        line-height: 2em;
+    }
+    /*
+    .alignright{ /* align content to the right
+        align-self: flex-end;
+    }
+    */
+
+    
+
+    ul#products{
+        padding-left: 10%;
+    }
+
+  /*  li.item:nth-child(even){
+
+    }*/
+
+    .box li{
+        margin: 2em 4%;
+    }
+
+    .box h1{
+        text-align: center;
+    }
+}
+
+@media(max-width:664px){
+
+    ul#products{
+        display: table;
+        padding-left: 0;
+    }
+
+    .box li{
+        font-size: 2em;
+        width: 50vw;
+    }
+}
+
+@media(max-width:500px){
+    img#logo{
+        max-width: 35%;
+    }
+
+    .box li{
+        margin: 4em 0;
+    }
+
+    button#checkout{
+
+        font-size: large;
+
+    }
+}

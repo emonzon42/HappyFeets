@@ -1,5 +1,5 @@
 <?php
-include './secure/sunshine.php';
+include __DIR__.'/./secure/sunshine.php';
 
 $authenticate = false;
 if (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW'])) {
@@ -13,8 +13,60 @@ if (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW'])) {
 if ($authenticate == false) {
     header('WWW-Authenticate: Basic realm="Restricted Page Enter Details To Continue"');
     header('HTTP/1.0 401 Unauthorized');
-    echo "Authentication Failed Refresh To Do It Again";
+    echo "YOU DO NOT HAVE ACCESS TO THIS PAGE >:)";
 } else {
+
+    $message = "Enter all the details below:";
+
+    if (isset($_POST['adminsub'])) { // Has our form been submitted?
+
+        if (
+            empty($_POST['name']) || empty($_POST['alt']) || empty($_POST['size']) || empty($_POST['c1'])
+            || empty($_POST['c2']) || empty($_POST['c3']) || empty($_POST['price']) || empty($_POST['itemdesc'])) {
+            $message =json_encode($_POST); //"Please fill out everything.";
+        
+        } else {
+            require_once './login/connection.php';
+            include __DIR__.'/tools/cleanup.php'; //clean up tools for data
+
+            //todo: data validation & prepared statements !(security measures)
+            $name = $_POST['name'];
+            $alt = $_POST['alt'];
+            $size = $_POST['size'];
+            $c1 = $_POST['c1'];
+            $c2 = $_POST['c2'];
+            $c3 = $_POST['c3'];
+            $price = $_POST['price'];
+            $itemdesc = $_POST['itemdesc'];
+            $qty = $_POST['qty'];
+            $img1 = $_FILES['img1']['name'];
+
+            $folder = __DIR__."/img/products/".$img1;
+            
+            //!IMAGE DOESN'T SUBMIT PROPERLY
+            $sql = "INSERT INTO sneakers 
+                (Name, AltName, Size, Color1, Color2, Color3,Price,ItemDesc,Qty,image1) 
+                VALUES 
+                ('" . $name . "','" . $alt . "'," . $size . ",'" . $c1 . "','" . $c2 . "','" . $c3 . "'," . $price . ",'" . $itemdesc . "',
+                " . $qty . ",'" . $img1 . "');
+            "; //LOAD_FILE(submittedimg `)
+
+            // Set our query results on the database to a variable
+            $result = $conn->query($sql);
+
+            // If the create table query we ran on the database is bad, let the user know.
+            if (!$result) {
+                $message =  "Error: " . $sql . "<br>" . $conn->error;
+            } else if (move_uploaded_file($_FILES['img1']['tmp_name'],$folder)){
+                $message = $name . " has been successfully uploaded";
+            } else{
+                $message = $name . " has been inserted, but the picture wasn't uploaded"; //should never happen if i did everything right
+            }
+
+            // Close connection - ALWAYS DO THIS
+            $conn->close();
+        }
+    }
 ?>
     <html>
 
@@ -42,8 +94,33 @@ if ($authenticate == false) {
         <div class="box"></div>
         <div class="box center">
             <h2 class="center">Add Products</h2>
-            <form>
-                there will be stuff here soon
+
+            <p class="center"><?php
+                echo $message;
+            ?></p>
+            <form action="" method="post" enctype="multipart/form-data">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required><br>
+                <label for="alt">alt Name:</label>
+                <input type="text" name="alt" id="alt"><br>
+                <label for="size">size:</label>
+                <input type="number" name="size" id="size" step="0.5" required><br>
+                <label for="c1">Color1</label>
+                <input type="text" name="c1" id="c1" required><br>
+                <label for="c2">Color2</label>
+                <input type="text" name="c2" id="c2"><br>
+                <label for="c3">Color3</label>
+                <input type="text" name="c3" id="c3"><br>
+                <label for="price">price:</label>
+                <input type="number" name="price" id="price" step="0.01" required><br>
+                <label for="itemdesc">Item Desc:</label><br>
+                <textarea name="itemdesc" id="itemdesc"></textarea><br>
+                <label for="qty">quantity:</label>
+                <input type="number" name="qty" id="qty" required><br>
+                <label for="img1">image:</label>
+                <input type="file" name="img1" id="img1" accept="image/png, image/jpeg" required><br>
+
+                <button name="adminsub" id="submit" value="submit">Insert</button>
 
             </form>
 
