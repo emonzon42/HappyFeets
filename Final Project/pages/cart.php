@@ -27,7 +27,7 @@
                 <table class="cart">
                     <thead>
                         <tr>
-                            <th>Name</th> <th>Qty</th> <th>Total</th>
+                            <th>&nbsp</th> <th>Qty</th> <th>Total</th>
                         </tr>
                     </thead>
 
@@ -52,6 +52,8 @@
                     </tbody>
 
                 </table>
+
+                <button id="checkout" class="medbutton">Checkout</button>
             </div>
 
         </div>

@@ -187,6 +187,12 @@ button#buy{
     margin-top: 2em;
 }
 
+button#checkout{
+    padding: 2em 3em;
+    margin-left: 85%;
+    font-size: small;
+}
+
 ul#products{
     margin: 0 auto;
     block-size: fit-content;
@@ -200,6 +206,13 @@ button.bigbutton{
     font-weight: bold;
     font-size: large;
 
+}
+
+button.medbutton{
+    padding: 2vw 1vw;
+    background-color: #f4cb24;
+    border-radius: 2em;
+    font-weight: bold;
 }
 
 p.error{
@@ -252,7 +265,6 @@ p.error{
 .box h1.cen{
     text-align: center;
     font-size: 300%;
-    white-space: nowrap;
 }
 
 .box .left{
@@ -352,6 +364,13 @@ footer span{
         font-weight: normal;
     }
 
+    button#checkout{
+        font-size: medium;
+        margin-top: 1.5em;
+        width: 100%;
+        margin-left: 0;
+    }
+
     .left, .right{
         width: 100%;
     }
@@ -364,6 +383,13 @@ footer span{
     .box .right{
         line-height: 2em;
     }
+    /*
+    .alignright{ /* align content to the right
+        align-self: flex-end;
+    }
+    */
+
+    
 
     ul#products{
         padding-left: 10%;
@@ -402,5 +428,11 @@ footer span{
 
     .box li{
         margin: 4em 0;
+    }
+
+    button#checkout{
+
+        font-size: large;
+
     }
 }
