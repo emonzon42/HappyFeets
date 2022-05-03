@@ -30,15 +30,15 @@ if ($authenticate == false) {
             include __DIR__.'/tools/cleanup.php'; //clean up tools for data
 
             //todo: data validation & prepared statements !(security measures)
-            $name = $_POST['name'];
-            $alt = $_POST['alt'];
-            $size = $_POST['size'];
-            $c1 = $_POST['c1'];
-            $c2 = $_POST['c2'];
-            $c3 = $_POST['c3'];
-            $price = $_POST['price'];
-            $itemdesc = $_POST['itemdesc'];
-            $qty = $_POST['qty'];
+            $name = validate($_POST['name']);
+            $alt = validate($_POST['alt']);
+            $size = validate($_POST['size']);
+            $c1 = validate($_POST['c1']);
+            $c2 = validate($_POST['c2']);
+            $c3 = validate($_POST['c3']);
+            $price = validate($_POST['price']);
+            $itemdesc = validate($_POST['itemdesc']);
+            $qty = validate($_POST['qty']);
             $img1 = $_FILES['img1']['name'];
 
             $folder = __DIR__."/img/products/".$img1;
