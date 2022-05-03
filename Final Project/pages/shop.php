@@ -2,11 +2,11 @@
 <?php
     require_once './login/connection.php';
 
-    $query = "SELECT * FROM sneakers";
+    $query = "SELECT ID,Name,AltName,Brand,cast(Size as decimal(10,1)),Color1,Color2,Color3,cast(Price as decimal(10,2)),ItemDesc,Qty,image1 FROM sneakers;";
     $result = $conn->query($query);
     if (!$result) {
-        $message =  "Error: " . $sql . "<br>" . $conn->error;
-    }
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    } 
 ?>
 
 <!doctype html>
@@ -46,7 +46,7 @@
                                 echo '<a href="./product.php?name='.$row['Name'].'&color='.$row['Color1'].'&hash='.hasher($row['ID']).'">';
                                     echo '<img src="../img/products/'.$row['image1'].'" alt="'.$row['Name'].'" width="200px" height="200px">';
                                     echo '<p>'.$row['Name'].'</p>';
-                                    echo "$".$row['Price'];
+                                    echo "$".$row['cast(Price as decimal(10,2))'];
                                 echo '</a>';
                             echo '</li>';
                         }

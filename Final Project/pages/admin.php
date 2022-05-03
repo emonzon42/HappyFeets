@@ -32,6 +32,7 @@ if ($authenticate == false) {
             //todo: data validation & prepared statements !(security measures)
             $name = validate($_POST['name']);
             $alt = validate($_POST['alt']);
+            $brand = validate($_POST['brand']);
             $size = validate($_POST['size']);
             $c1 = validate($_POST['c1']);
             $c2 = validate($_POST['c2']);
@@ -43,11 +44,10 @@ if ($authenticate == false) {
 
             $folder = __DIR__."/img/products/".$img1;
             
-            //!IMAGE DOESN'T SUBMIT PROPERLY
             $sql = "INSERT INTO sneakers 
-                (Name, AltName, Size, Color1, Color2, Color3,Price,ItemDesc,Qty,image1) 
+                (Name, AltName,Brand, Size, Color1, Color2, Color3,Price,ItemDesc,Qty,image1) 
                 VALUES 
-                ('" . $name . "','" . $alt . "'," . $size . ",'" . $c1 . "','" . $c2 . "','" . $c3 . "'," . $price . ",'" . $itemdesc . "',
+                ('" . $name . "','" . $alt . "','" . $brand . "'," . $size . ",'" . $c1 . "','" . $c2 . "','" . $c3 . "'," . $price . ",'" . $itemdesc . "',
                 " . $qty . ",'" . $img1 . "');
             "; //LOAD_FILE(submittedimg `)
 
@@ -103,6 +103,8 @@ if ($authenticate == false) {
                 <input type="text" name="name" id="name" required><br>
                 <label for="alt">alt Name:</label>
                 <input type="text" name="alt" id="alt"><br>
+                <label for="brand">Brand Name:</label>
+                <input type="text" name="brand" id="brand"><br>
                 <label for="size">size:</label>
                 <input type="number" name="size" id="size" step="0.5" required><br>
                 <label for="c1">Color1</label>

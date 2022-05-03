@@ -36,7 +36,7 @@
                     echo  "Error: " . $sql . "<br>" . $conn->error;
                     exit;
                 }
-                $row = mysqli_fetch_row($result);
+                $row = mysqli_fetch_array($result);
 
                 if(empty($row)){//user inputted a product into the url that doesn't exist
                     echo $errormsg. "It seems you have attempted to handwrite the URL or this page no longer exists. 
@@ -45,16 +45,17 @@
                     exit;
                 }
 
-                $name = $row[1];
-                $alt = $row[2];
-                $size = $row[3];
-                $c1 = $row[4];
-                $c2 = $row[5];
-                $c3 = $row[6];
-                $price = $row[7];
-                $itemdesc = $row[8];
-                $qty = $row[9];
-                $img = $row[10];
+                $name = $row['Name'];
+                $alt = $row['AltName'];
+                $brand = $row['Brand'];
+                $size = $row['Size'];
+                $c1 = $row['Color1'];
+                $c2 = $row['Color2'];
+                $c3 = $row['Color3'];
+                $price = $row['Price'];
+                $itemdesc = $row['ItemDesc'];
+                $qty = $row['Qty'];
+                $img = $row['image1'];
 
 
                 $conn->close();
