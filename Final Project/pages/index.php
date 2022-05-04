@@ -27,9 +27,9 @@
         </div>
         <div class="ibox"></div>
         <div class="box">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga numquam corrupti magnam unde ratione? Maxime
-                aliquid voluptatibus officiis quod omnis debitis fugiat tempora excepturi qui? Magni corporis velit dolorum
-                obcaecati.</p>
+            <p>Your Happiness Starts Here. Let us at Happy Feets take care of you and make sure your experience is a great one.
+            From our top-notch customer service, to our quality products listed below market prices, there is nowhere else that
+            you will be able to have an experience like this one.</p>
         </div>
         <div class="ibox"></div>
         <div class="box">
