@@ -164,6 +164,7 @@ nav a:hover {
 #homehead h1{
     font-size: 4.5vw;
     background: #faff78;
+    letter-spacing: .1px;
 
     float:left;
     position:absolute;
@@ -171,7 +172,7 @@ nav a:hover {
     width: fit-content;
     height: auto;
     margin-left: 1%;
-    margin-right: 30%;
+    margin-right: 0;
 
     border-top: .5px solid black;
     border-left: .5px solid black;
@@ -186,14 +187,12 @@ nav a:hover {
 
     float:left;
     position:absolute;
-    padding: .25%;
+    padding:1.5vw;
     width: fit-content;
     height: auto;
     margin-left: 4%;
     margin-right: 30%;
     margin-top: 40%;
-
-    padding:1.5vw;
 }
 #homehead a:hover{
     background: #6ec2ff;
@@ -235,6 +234,7 @@ h2.brandname{
 }
 
 button.bigbutton{
+    color: black;
     padding: 2.5em 2em;
     background-color: #f4cb24;
     border-radius: 2em;
@@ -244,6 +244,7 @@ button.bigbutton{
 }
 
 button.medbutton{
+    color: black;
     padding: 2vw 1vw;
     background-color: #f4cb24;
     border-radius: 2em;
@@ -415,6 +416,16 @@ footer span{
         margin-top: 1.5em;
         width: 100%;
         margin-left: 0;
+    }
+
+    #homehead h1{
+        font-size: 6vw;
+        margin-left: 15%;
+    }
+
+    #homehead a{
+        font-size: 4vw;
+        margin-left: 10%;
     }
 
     .left, .right{
