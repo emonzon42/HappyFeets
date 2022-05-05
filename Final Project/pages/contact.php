@@ -21,12 +21,13 @@
         <!-- Page Specific-->
         <div class="ibox"></div>
         <div class="box"></div>
-        <div class="box"></div>
         <div class="box">
             <h1 class="cen">Contact Us</h1>
+            <div id="confirm" class="center">Any questions or concerns? Feel free to use our contact form below and we will get in touch with you as soon as we can!</div>
         </div>
     
         <div class="box center">
+            
         <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
                 <label for="fname">First Name:</label>
                 <input type="text" id="fname" placeholder="Juan" name="fname" required><br>
@@ -36,15 +37,12 @@
                 <input type="text" id="email" placeholder="bigmoneyj@hotmail.com" name="email" required><br>
                 <label for="msg">Message:</label><br>
                 <textarea id="msg" name="msg" placeholder="Enter Your Message"></textarea><br>
-                <input type="submit" id="submit" value="Submit">
+                <button type="button" name="contactbtn" id="contactbtn">Submit</button>
     
             </form>
-    
+
+            <br>You can also reach us at <strong>averyhappycompany@gmail.com</strong>
         </div>
-        <div class="box">
-            <div id="confirm"></div>
-        </div>
-        <div class="box"></div>
         <div class="box"></div>
         <div class="ibox"></div>
         <div id="footer"></div>

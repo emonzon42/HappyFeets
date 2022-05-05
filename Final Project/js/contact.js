@@ -1,8 +1,8 @@
-document.getElementById('submit').onclick = function() {
+document.getElementById('contactbtn').onclick = function() {
 
    let myRequest = new XMLHttpRequest();
 
-        alert("we requestin)");
+        //alert("we requestin)");
         // Create a function for when the ready state changes for your myRequest
         
         // Inside of that function will be an if statement to check the readyState (4) and status (200) of our request
@@ -11,22 +11,19 @@ document.getElementById('submit').onclick = function() {
         myRequest.onreadystatechange = function(){
 
             if(this.status == 200 && this.readyState == 4){
-                document.getElementById('confirm').innerHTML = "<p>"+this.responseText+"</p>";
+                document.getElementById('confirm').innerHTML = "<div id='confirm' class='center'>"+this.responseText+"</div>";
             }
 
         }
 
-        myRequest.open("POST", "../tools/mail");
-        var data = {
-            fname:document.getElementById('submit'),
-            lname: document.getElementById('lname'),
-            email: document.getElementById('email'),
-            msg: document.getElementById('msg')
-        };
+        let fname = document.getElementById('fname').value;
+        let lname = document.getElementById('lname').value;
+        let email = document.getElementById('email').value;
+        let msg = document.getElementById('msg').value;
+        myRequest.open("GET", "../tools/mail.php?fname="+fname+"&lname="+lname+"&email="+email+"&msg="+msg,true);
+        myRequest.send();
 
-        myRequest.send(JSON.stringify(data));
-
-        alert("we jus sent the sauce");
+      //  alert("we jus sent the sauce" + email + "hi");
         
     
 

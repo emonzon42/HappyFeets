@@ -1,37 +1,33 @@
 <?php
+error_reporting(-1);
+ini_set('display_errors', 'On');
+set_error_handler("var_dump");
 
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") { // Has the form been submitted?
+if ($_SERVER['REQUEST_METHOD'] == "GET") { // Has the form been submitted?
 
-    if (empty($_POST['fname']) || empty($_POST['lname']) || empty($_POST['email']) || empty($_POST['msg'])) {
+    if (empty($_GET['fname']) || empty($_GET['lname']) || empty($_GET['email']) || empty($_GET['msg'])) {
         echo "Please provide any missing values.";
-        echo $_POST['fname'];
-        echo $_POST['lname'];
-        echo $_POST['email'];
-        echo $_POST['msg'];
-    } else {
+        echo $_GET['fname'];
+        echo $_GET['lname'];
+        echo $_GET['email'];
+        echo $_GET['msg'];
+    } else if (!preg_match('/[A-z0-9]+@[A-z]+\./',$_GET['email'])){ 
+        echo "Please enter a valid email address.";
+    }else {
     //    include './secure/manguconsalami.php';
-        include './cleanup.php'; //clean up tools for data
+        include __DIR__.'/cleanup.php'; //clean up tools for data
 
-        $first = test_input($_POST['fname']);
-        $last = test_input($_POST['lname']);
-        $mail = test_input($_POST['email']);
-        $msg = test_input($_POST['msg']);
+        $first = validate($_GET['fname']);
+        $last = validate($_GET['lname']);
+        $mail = validate($_GET['email']);
+        $msg = validate($_GET['msg']);
 
 
         //todo:add customer to db if they arent already there
-        /*
-                        // Create new connection through mysqli using the four pieces of credentials
-                        $conn = new mysqli($dreamland, $kobe, $shaq, $db);
-
-                        // Check connection and quit if it doesn't work
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        }*/
 
         //todo:send email
-        sendmail($first, $last, $mail, $msg); //sends email //!not fucntional yet :(
-        echo "Great! We will be in touch with you soon!";
+        sendmail($first, $last, $mail, $msg); //sends email
 
         // Close connection - ALWAYS DO THIS
        // $conn->close();
@@ -51,9 +47,15 @@ function sendmail($first, $last, $email, $msg)
 
     $headers = "From:" . $from;
     $headers2 = "From:" . $to;
-    mail($to, $subject, $message, $headers);
-    mail($from, $subject2, $message2, $headers2); // sends a copy of the message to the sender
-    echo "Mail Sent. Thank you " . $first_name . ", we will contact you shortly.";
+    /*mail($to, $subject, $message, $headers);
+    mail($from, $subject2, $message2, $headers2); // sends a copy of the message to the sender*/
+
+    if (mail($to, $subject, $message, $headers) && mail($from, $subject2, $message2, $headers2)) {
+        echo "Mail Sent. Thank you " . $first_name . ", we will contact you shortly.";
+    } else{
+        echo "We apologize, this action cannot be completed at this time (due to errors on our end!). Please try again later.";
+    }
+    
 }
 
 ?>
