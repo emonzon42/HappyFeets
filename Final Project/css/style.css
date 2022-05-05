@@ -285,6 +285,10 @@ p.error{
     font-size: large;
 }
 
+.fa.social{ /* external css class for social media icons */
+    font-size: xx-large;
+}
+
 table.cart{
     border-collapse: separate;
     border-spacing: 0 2vw;
@@ -331,6 +335,13 @@ footer span{
     padding-left: 1em;
 }
 
+#foot{
+    display: flex;
+}
+
+#foot .right{
+    text-align: end;
+}
 /* End Footer Styles */
 
 /* Media Queries*/
