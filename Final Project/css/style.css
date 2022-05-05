@@ -72,11 +72,9 @@ a{
     margin: 0 5em;
 }
 .left{ /* content on left side of page */
-    display: inline-flex;
     width: 49%;
 }
 .right{ /* content on right side of page */
-    display: inline-flex;
     width: 49%;
 }
 
@@ -273,13 +271,15 @@ p.error{
 
 .box .left{
     padding: 2em 0;
+    display: inline-flex;
 }
 
-.box .pinfo{
+.box .right{
     flex-direction: column;
     vertical-align: top; 
     padding: 1em 4em;
     line-height: 4em;
+    display: inline-flex;
 }
 .pinfo p{
     font-size: large;
