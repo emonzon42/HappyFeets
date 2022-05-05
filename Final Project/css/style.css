@@ -46,6 +46,8 @@ body {
     background-color: rgb(243, 243, 243);
     font-size: 16px;
     margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
 }
 img {
     max-width: 100%;
@@ -54,6 +56,15 @@ img {
 a{
     color: #6ec2ff;
     text-decoration: none;
+}
+
+h1{
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+h2, h3, h4, h5, h6{
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
 }
 
 .box{ /* primary container for most things on the website*/
