@@ -168,6 +168,26 @@ nav a:hover {
     border-bottom:2px solid black;
 }
 
+#homehead a{
+    background: #2fa5fb;
+    color: white;
+    font-size: 2.5vw;
+
+    float:left;
+    position:absolute;
+    padding: .25%;
+    width: fit-content;
+    height: auto;
+    margin-left: 4%;
+    margin-right: 30%;
+    margin-top: 40%;
+
+    padding:1.5vw;
+}
+#homehead a:hover{
+    background: #6ec2ff;
+}
+
 p#desc{
     border: 1px outset rgb(250, 250, 250);
     background-color: rgb(243, 243, 243);

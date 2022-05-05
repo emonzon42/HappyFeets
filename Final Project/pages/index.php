@@ -24,6 +24,7 @@
     
             <img src="../img/homecover2.jpg" max-width="2160px" max-height="1080px" alt="dummy image" id="homecov">
             <h1 class="cen">Happiness Is Where The Heart Is</h1>
+            <a href="shop">Shop All</a>
         </div>
         <div class="ibox"></div>
         <div class="box">
