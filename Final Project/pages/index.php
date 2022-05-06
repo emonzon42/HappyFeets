@@ -2,7 +2,7 @@
 <?php
 require_once './login/connection.php';
 
-$query = "SELECT * FROM sneakers;";
+$query = "SELECT * FROM sneakers ORDER BY DateAdded DESC;";
 $result = $conn->query($query);
 if (!$result) {
     echo "Error: " . $sql . "<br>" . $conn->error;
@@ -44,19 +44,44 @@ if (!$result) {
         </div>
         <div class="ibox"></div>
         <div class="box">
-            <h2 class="center">Newest Releases</h2>
-            <div class="three-col">
-                <img src="https://via.placeholder.com/300" alt="dummy image">
-                <p>Product Name</p>
-            </div>
-            <div class="three-col">
-                <img src="https://via.placeholder.com/300" alt="dummy image">
-                <p>Product Name</p>
-            </div>
-            <div class="three-col">
-                <img src="https://via.placeholder.com/300" alt="dummy image">
-                <p>Product Name</p>
-            </div>
+            <h1 class="cen">Newest Releases</h1>
+            <?php
+                    include __DIR__.'/tools/hashslingingslasher.php'; //functions to hash/dehash data
+                    
+                    $count = 0;
+                    while($row = mysqli_fetch_array($result)){
+                        
+                        if(!$row['Qty']==0){//if we have run out of inventory it will not display
+                            //echo json_encode($row);
+                            $count++;
+                            echo '
+                            <div class="three-col">
+                                <a href="./product.php?name='.$row['Name'].'&color='.$row['Color1'].'&hash='.hasher($row['ID']).'">
+                                    <img src="../img/products/'.$row['image1'].'" alt="'.$row['Name'].'" width="300px" max-height="300px" max-width="300px">
+                                    <p>'.$row['Brand'].' '.$row['Name'].'</p>
+                                </a>
+                            </div>
+                            
+                            ';
+                        }
+                        if($count == 3){ //only first 3 will display
+                            break;
+                        }
+                    }
+                    if($count !=3){ //if not enough/no products are available then show default dummy photos
+                        for (; $count<3 ; $count++) { 
+                            echo '
+                            <div class="three-col">
+                                <img src="https://via.placeholder.com/300" alt="dummy image" width="300px" max-height="300px" max-width="300px">
+                                <p>Nothing to see here yet :(</p>
+                            </div>
+                            ';
+                        }
+                    }
+
+                    $conn->close();
+
+            ?>
         </div>
         <div class="ibox"></div>
 

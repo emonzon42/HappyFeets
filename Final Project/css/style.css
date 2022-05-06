@@ -336,6 +336,11 @@ p.error{
     font-size: 1.5em;
 }
 
+.three-col a{
+    color: black;
+    
+}
+
 .fa.social{ /* external css class for social media icons */
     font-size: xx-large;
 }
