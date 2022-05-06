@@ -317,6 +317,25 @@ p.error{
     font-size: large;
 }
 
+.three-col {
+    display: inline-block;
+    width: 33%;
+    padding: 0.6250em;
+    
+}
+
+.three-col img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.three-col p {
+    text-align: center;
+    margin: 1em auto;
+    font-size: 1.5em;
+}
+
 .fa.social{ /* external css class for social media icons */
     font-size: xx-large;
 }
@@ -446,7 +465,10 @@ footer span{
     }
     */
 
-    
+    .three-col{
+        width: 100%;
+        padding: 1em 5em;
+    }
 
     ul#products{
         padding-left: 10%;
