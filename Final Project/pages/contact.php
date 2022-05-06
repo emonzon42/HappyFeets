@@ -5,6 +5,10 @@
     <head>
         <title>Happy Feets | Contact Us</title>
         <meta name="description" content="">
+        <meta property="og:title" content="Happy Feets | Contact Us" />
+        <meta property="og:url" content="http://happyfeets.byethost9.com/contact" />
+        <meta property="og:description" content="description of your website/webpage" />
+        <meta property="og:image" content="../img/homecover2.jpg" />
         <?php include __DIR__.'/pagedata.php'; // <head> data that is universal across website ?>
     </head>
 

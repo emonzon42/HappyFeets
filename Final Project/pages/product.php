@@ -47,8 +47,12 @@ if (empty($_GET['name']) || empty($_GET['color']) || empty($_GET['hash'])) { //t
         <html lang="en">
 
             <head>
-                <title>Happy Feets | <?php echo $_GET['name']; ?></title>
+                <title>Happy Feets | <?php echo $brand.' '.$name.' "'.$alt.'"'; ?></title>
                 <meta name="description" content="<?php echo $itemdesc; ?>">
+                <meta property="og:title" content="Happy Feets | <?php echo $brand.' '.$name.' "'.$alt.'"'; ?>" />
+                <meta property="og:url" content="<?php echo 'http://happyfeets.byethost9.com/product.php?name='.$row['Name'].'&color='.$row['Color1'].'&hash='.hasher($row['ID']).''; ?>" />
+                <meta property="og:description" content="<?php echo $itemdesc; ?>" />
+                <meta property="og:image" content="<?php echo '../img/products/' . $img . '" alt="' . $name . ' ' . $alt . ''; ?>" />
                 <?php include __DIR__ . '/pagedata.php'; // <head> data that is universal across website 
                 ?>
 

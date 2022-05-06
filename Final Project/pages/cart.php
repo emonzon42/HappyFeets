@@ -45,6 +45,10 @@ include __DIR__.'/tools/hashslingingslasher.php';
     <head>
         <title>Happy Feets | Shopping Cart</title>
         <meta name="description" content="">
+        <meta property="og:title" content="Happy Feets | Shopping Cart" />
+        <meta property="og:url" content="http://happyfeets.byethost9.com/cart" />
+        <meta property="og:description" content="description of your website/webpage" />
+        <meta property="og:image" content="../img/homecover2.jpg" />
         <?php include __DIR__.'/pagedata.php'; // <head> data that is universal across website ?>
         
     </head>

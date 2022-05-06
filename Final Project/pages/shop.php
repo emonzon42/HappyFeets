@@ -15,6 +15,10 @@
     <head>
         <title>Happy Feets | Shop All</title>
         <meta name="description" content="">
+        <meta property="og:title" content="Happy Feets | Shop All Products" />
+        <meta property="og:url" content="http://happyfeets.byethost9.com/shop" />
+        <meta property="og:description" content="description of your website/webpage" />
+        <meta property="og:image" content="../img/homecover2.jpg" />
         <?php include __DIR__.'/pagedata.php'; // <head> data that is universal across website ?>
     </head>
 

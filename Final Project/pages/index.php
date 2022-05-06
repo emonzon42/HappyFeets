@@ -7,6 +7,8 @@ $result = $conn->query($query);
 if (!$result) {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
+$homepagecover = '../img/homecover2.jpg'; //link to homepage cover photo
 ?>
 
 <!doctype html>
@@ -14,7 +16,11 @@ if (!$result) {
 
     <head>
         <title>Happy Feets | Homepage</title>
-        <meta name="description" content="">
+        <meta name="description" content="Welcome to Happy Feets, where the customer's happiness is our number one priority! Please take your time as you browse through our selection of footwear and other accessories! ">
+        <meta property="og:title" content="Happy Feets | Wearable Happiness" />
+        <meta property="og:url" content="http://happyfeets.byethost9.com" />
+        <meta property="og:description" content="Welcome to Happy Feets, where the customer's happiness is our number one priority! Please take your time as you browse through our selection of footwear and other accessories! " />
+        <meta property="og:image" content="<?php echo $homepagecover; ?>" />
         <?php include __DIR__.'/pagedata.php'; // <head> data that is universal across website ?>
 
     </head>
@@ -25,7 +31,7 @@ if (!$result) {
         <!-- Page Specific-->
         <div id="homehead">
 
-            <img src="../img/homecover2.jpg" max-width="2160px" max-height="1080px" alt="dummy image" id="homecov">
+            <img src="<?php echo $homepagecover; ?>" max-width="2160px" max-height="1080px" alt="dummy image" id="homecov">
             <h1 class="cen">Happiness Is Where The Heart Is</h1>
             <a href="shop">Shop All</a>
         </div>
