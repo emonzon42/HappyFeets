@@ -6,8 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Elijah Alvarenga">
-        <link rel="shortcut icon" type="image/jpg" href="../img/Smileyy.png" />
-        <link rel="icon" type="image/jpg" href="../img/Smileyy.png" />
+        <link rel="shortcut icon" type="image/png" href="/../img/Smileyy.png" />
+        <link rel="icon" type="image/png" href="/../img/Smileyy.png" />
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bebas%20Neue"> <!-- H1 Header Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"> <!-- Body Font -->

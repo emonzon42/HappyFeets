@@ -37,13 +37,14 @@ $homepagecover = '../img/homecover2.jpg'; //link to homepage cover photo
         </div>
         <div class="ibox"></div>
         <div class="box">
+            <h1 class="cen">At Happy Feets We Care About The Customer</h1>
             <p>Your Happiness Starts Here. Let us at Happy Feets take care of you and make sure your experience is a great one.
                 From our top-notch customer service, to our quality products listed below market prices, there is nowhere else that
                 you will be able to have an experience like this one.</p>
         </div>
         <div class="ibox"></div>
         <div class="box">
-            <h1 class="cen">Newest Releases</h1>
+            <h1 class="cen">Just Came In!</h1>
             <?php
                     include __DIR__.'/tools/hashslingingslasher.php'; //functions to hash/dehash data
                     
